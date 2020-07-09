@@ -4,12 +4,11 @@ on: [push]
 jobs:
   test:
     name: Run TestCafe Tests
-    runs-on: windows-latest
     steps:
-      - name: Check out the repository
-        uses: actions/checkout@v1
-      - name: Run tests
-        uses: DevExpress/testcafe-action@latest
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
         with:
-            version: "1.6.0"
-            args: "chrome src/tests"
+          node-version: "10.x"
+      - uses: Meemaw/testcafe-action@master
+        with:
+          args: "chrome:headless src/tests"
