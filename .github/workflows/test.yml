@@ -1,20 +1,15 @@
-name: Target Multiple Node.js Versions 12 and Operating Systems ubuntu 
+name: End-to-End Tests
 on: [push]
 
 jobs:
-  build:
-    name: Run Tests
-    runs-on: $
-    strategy:
-      matrix:
-        os: ubuntu-latest
-        node: 12
+  test:
+    name: Run TestCafe Tests
+    runs-on: windows-latest
     steps:
-      - uses: actions/setup-node@v1
-        with:
-          node-version: $
-      - uses: actions/checkout@v1
-      - name: Run TestCafe Tests
+      - name: Check out the repository
+        uses: actions/checkout@v1
+      - name: Run tests
         uses: DevExpress/testcafe-action@latest
         with:
-          args: "chrome src/tests"
+            version: "1.6.0"
+            args: "chrome src/tests"
