@@ -207,3 +207,5 @@ report.html
 venv/
 reports
 
+node_modules
+
