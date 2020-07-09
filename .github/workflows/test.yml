@@ -1,0 +1,19 @@
+name: Build
+on: [push]
+
+jobs:
+  build:
+    name: Run TestCafe Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13.x    
+
+      - name: Install dependencies
+        run: npm install package.json
+
+      - name: Run Tests
+        env:
+        run: testcafe chrome:headless src/tests
