@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/BhumiGopani/testcafe-demo#readme",
   "dependencies": {
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.6",
     "node-fetch": "^2.6.0",
     "package.json": "^2.0.1",
     "testcafe": "^1.8.2",
